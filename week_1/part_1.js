@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const readData = () => {
   return fs
-    .readFileSync("./1input.txt", "utf8")
+    .readFileSync("./part_1input.txt", "utf8")
     .toString()
     .trim()
     .split("\n")
@@ -18,12 +18,9 @@ const sumArray = (a) => {
 }
 
 const getRequiredFuel = (a) => {
-  let requiredFuel = a.map(el => Math.floor(el/3) - 2)
-  return sumArray(requiredFuel);
+  return a.map(el => Math.floor(el / 3) - 2);
 }
 
-const fuelData = readData();
+// console.log(`Total required fuel: ${sumArray(readData(fuelData))}`);
 
-const totalFuel = getRequiredFuel(fuelData);
-
-console.log(`Total required fuel: ${totalFuel}`);
+module.exports = { sumArray, getRequiredFuel };
